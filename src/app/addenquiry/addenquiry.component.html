@@ -1,0 +1,44 @@
+<p>addenquiry works!</p>
+
+
+<form [formGroup]="enquiryForm" (ngSubmit)="add()">
+    <div>
+        <input placeholder="firstName" formControlName="firstName" name="name" type="text">
+        <div *ngIf="hasError('firstName')">
+            <p *ngIf="get('firstName').errors.required">FirstName is required</p>
+            <p *ngIf="get('firstName').errors.minlength">FirstName should be atleast 3 characters</p>
+        </div>
+    </div>
+    <div>
+        <input placeholder="lastName" formControlName="lastName" name="name" type="text">
+        <div *ngIf="hasError('lastName')">
+            <p *ngIf="get('lastName').errors.required">LastName is required</p>
+            <p *ngIf="get('lastName').errors.minlength">LastName should be atleast 3 characters</p>
+        </div>
+    </div>
+    <div>
+        <input placeholder="email" formControlName="email" name="name" type="text">
+        <div *ngIf="hasError('email')">
+            <p *ngIf="get('email').errors.required">Email is required</p>
+            <p *ngIf="get('email').errors.minlength">Email should be atleast 3 characters</p>
+        </div>
+    </div>
+    <div>
+        <input placeholder="phone" formControlName="phone" name="name" type="text">
+        <div *ngIf="hasError('phone')">
+            <p *ngIf="get('phone').errors.required">Phone is required</p>
+            <p *ngIf="get('phone').errors.minlength">Phone should be atleast 3 characters</p>
+        </div>
+    </div>
+    <div>
+        <input placeholder="comment" formControlName="comment" name="name" type="text">
+        <div *ngIf="hasError('comment')">
+            <p *ngIf="get('comment').errors.required">Comment is required</p>
+            <p *ngIf="get('confirmPassword').errors.minlength">Comment should be atleast 3 characters</p>
+           
+        </div>
+        
+    </div>
+    <button type="submit" [disabled]="!enquiryForm.valid">Add</button>
+</form>
+
